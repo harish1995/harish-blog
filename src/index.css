@@ -639,7 +639,8 @@ footer p { color: var(--muted); font-size: 0.8rem; }
 
   /* Hero */
   .hero { min-height: 100svh; }
-  .hero-img { width: 100%; height: 100%; top: 0; right: 0; object-fit: cover; object-position: center top; opacity: 0.5; }
+  .hero-img { width: 100%; height: 100%; top: 0; right: 0; object-fit: cover; object-position: center top; opacity: 0.65; }
+  .hero::before { background: linear-gradient(to bottom, rgba(8,12,20,0.75) 0%, rgba(8,12,20,0.4) 45%, rgba(8,12,20,0.3) 65%, rgba(8,12,20,0.9) 100%); }
   .hero-content { padding: 6rem 0 4rem; }
   .stat-row { gap: 0.5rem; }
 
