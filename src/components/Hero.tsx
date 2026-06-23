@@ -1,7 +1,9 @@
+import heroImg from '/public/106.png'
+
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      <img src={`${import.meta.env.BASE_URL}106.png`} alt="" className="hero-img" />
+      <img src={heroImg} alt="" className="hero-img" />
       <div className="hero-content">
         <div className="wrapper">
           <div className="hero-text">
