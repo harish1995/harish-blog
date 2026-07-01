@@ -6,8 +6,13 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import AdminApp from './admin/AdminApp'
 
 function App() {
+  if (window.location.pathname.endsWith('/admin') || window.location.pathname.endsWith('/admin/')) {
+    return <AdminApp />
+  }
+
   return (
     <>
       <Background />

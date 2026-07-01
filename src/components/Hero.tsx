@@ -1,29 +1,47 @@
+import { useState, useEffect } from 'react'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../firebase'
+import type { HeroData } from '../types'
 import heroImg from '/public/106.png'
 
 export default function Hero() {
+  const [data, setData] = useState<HeroData | null>(null)
+
+  useEffect(() => {
+    return onSnapshot(doc(db, 'portfolio', 'hero'), (snap) => {
+      if (snap.exists()) setData(snap.data() as HeroData)
+    })
+  }, [])
+
   return (
     <section className="hero" id="home">
-      <img src={heroImg} alt="" className="hero-img" />
+      <img src={data?.imageUrl || heroImg} alt="" className="hero-img" />
       <div className="hero-content">
         <div className="wrapper">
           <div className="hero-text">
             <div className="badge">
               <div className="badge-dot"></div>
-              Available for opportunities
+              {data?.badge ?? 'Available for opportunities'}
             </div>
-            <h1>Hi, I'm <span className="accent">Harish K.</span></h1>
+            <h1>
+              {data?.name ?? "Hi, I'm"}{' '}
+              <span className="accent">{data?.nameAccent ?? 'Harish K.'}</span>
+            </h1>
             <p className="hero-subtitle">
-              <strong>Fullstack Developer</strong> · Java Backend + React Frontend
+              <strong>{data?.subtitle ?? 'Fullstack Developer · Java Backend + React Frontend'}</strong>
             </p>
-            <p>
-              I build robust, scalable web applications from the ground up — designing clean REST
-              APIs with Java &amp; Spring Boot on the backend and crafting responsive, interactive
-              UIs with React on the frontend.
-            </p>
+            <p>{data?.description ?? 'I build robust, scalable web applications from the ground up.'}</p>
             <div className="stat-row">
-              <div className="stat"><strong>3+</strong><span>Years Exp</span></div>
-              <div className="stat"><strong>20+</strong><span>Projects</span></div>
-              <div className="stat"><strong>10+</strong><span>Clients</span></div>
+              {(data?.stats ?? [
+                { value: '3+', label: 'Years Exp' },
+                { value: '20+', label: 'Projects' },
+                { value: '10+', label: 'Clients' },
+              ]).map((s) => (
+                <div key={s.label} className="stat">
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
             </div>
             <div className="hero-btns">
               <a href="#projects" className="btn-primary">View Projects →</a>

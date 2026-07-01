@@ -1,0 +1,174 @@
+/* ── Layout ──────────────────────────────── */
+.admin-root { min-height: 100vh; background: #0f0f13; color: #e0e0e0; font-family: system-ui, sans-serif; }
+
+.admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 2rem; background: #1a1a24; border-bottom: 1px solid #2a2a3a;
+}
+.admin-header h1 { font-size: 1.1rem; font-weight: 600; color: #fff; margin: 0; }
+.admin-user { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; }
+.admin-user span { color: #666; }
+
+.admin-tabs {
+  display: flex; gap: 0.25rem; padding: 0.75rem 2rem;
+  background: #13131c; border-bottom: 1px solid #2a2a3a; overflow-x: auto;
+}
+.admin-tab {
+  padding: 0.45rem 1rem; border: none; background: transparent;
+  color: #777; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+  white-space: nowrap; transition: all 0.15s; font-family: inherit;
+}
+.admin-tab:hover { background: #1e1e2e; color: #ccc; }
+.admin-tab.active { background: #1e1e2e; color: #fff; font-weight: 500; }
+
+.admin-content { padding: 2rem; max-width: 820px; margin: 0 auto; }
+
+/* ── Login ───────────────────────────────── */
+.admin-login {
+  min-height: 100vh; display: flex; align-items: center;
+  justify-content: center; background: #0f0f13;
+}
+.admin-login-card {
+  background: #1a1a24; border: 1px solid #2a2a3a;
+  border-radius: 12px; padding: 2rem; width: 100%; max-width: 380px;
+}
+.admin-login-card h1 { font-size: 1.4rem; margin: 0 0 0.5rem; color: #fff; text-align: center; }
+.admin-login-card p { font-size: 0.85rem; color: #666; text-align: center; margin: 0 0 1.5rem; }
+.admin-login-card input {
+  width: 100%; background: #0f0f13; border: 1px solid #2a2a3a;
+  border-radius: 8px; padding: 0.7rem 0.9rem; color: #e0e0e0;
+  font-size: 0.9rem; font-family: inherit; box-sizing: border-box;
+  margin-bottom: 0.75rem; display: block;
+}
+.admin-login-card input:focus { outline: none; border-color: #4f9cf9; }
+
+/* ── Loading / Error ─────────────────────── */
+.admin-loading {
+  min-height: 100vh; display: flex; align-items: center;
+  justify-content: center; background: #0f0f13; color: #555;
+}
+.admin-error { color: #f97b4f; font-size: 0.85rem; margin: 0 0 0.75rem; }
+
+/* ── Editor ──────────────────────────────── */
+.editor h2 { font-size: 1.2rem; margin: 0 0 1.5rem; color: #fff; }
+.editor h3 { font-size: 0.9rem; margin: 1.5rem 0 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #2a2a3a; padding-bottom: 0.5rem; }
+
+/* ── Form ────────────────────────────────── */
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; color: #666; margin-bottom: 0.4rem; text-transform: uppercase;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; background: #1a1a24; border: 1px solid #2a2a3a;
+  border-radius: 6px; padding: 0.6rem 0.75rem; color: #e0e0e0;
+  font-size: 0.875rem; font-family: inherit; box-sizing: border-box; transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { outline: none; border-color: #4f9cf9; }
+.form-group select { cursor: pointer; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+/* ── Array rows ──────────────────────────── */
+.array-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+.array-row input,
+.array-row select {
+  flex: 1; background: #1a1a24; border: 1px solid #2a2a3a; border-radius: 6px;
+  padding: 0.5rem 0.6rem; color: #e0e0e0; font-size: 0.85rem; font-family: inherit;
+}
+.array-row input:focus,
+.array-row select:focus { outline: none; border-color: #4f9cf9; }
+
+/* ── Buttons ─────────────────────────────── */
+.btn-save {
+  background: #4f9cf9; border: none; color: #fff; border-radius: 8px;
+  padding: 0.65rem 1.4rem; cursor: pointer; font-size: 0.875rem;
+  font-weight: 500; margin-top: 1.25rem; transition: background 0.15s; font-family: inherit;
+}
+.btn-save:hover { background: #3b8de8; }
+.btn-save:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn-add {
+  background: transparent; border: 1px dashed #2a2a3a; color: #4f9cf9;
+  border-radius: 6px; padding: 0.45rem 1rem; cursor: pointer; font-size: 0.85rem;
+  width: 100%; margin-top: 0.25rem; transition: all 0.15s; font-family: inherit;
+}
+.btn-add:hover { background: #1a1a24; border-color: #4f9cf9; }
+
+.btn-remove {
+  background: transparent; border: 1px solid #3a1a1a; color: #f97b4f;
+  border-radius: 4px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.75rem;
+  flex-shrink: 0; font-family: inherit;
+}
+.btn-remove:hover { background: #2a1010; }
+
+.btn-edit {
+  background: transparent; border: 1px solid #2a2a3a; color: #888;
+  border-radius: 6px; padding: 0.35rem 0.7rem; cursor: pointer;
+  font-size: 0.8rem; font-family: inherit;
+}
+.btn-edit:hover { background: #1a1a24; color: #ccc; }
+
+.btn-danger {
+  background: transparent; border: 1px solid #3a1a1a; color: #f97b4f;
+  border-radius: 6px; padding: 0.35rem 0.7rem; cursor: pointer;
+  font-size: 0.8rem; font-family: inherit;
+}
+.btn-danger:hover { background: #2a1010; }
+
+.btn-primary-sm {
+  background: #4f9cf9; border: none; color: #fff; border-radius: 6px;
+  padding: 0.35rem 0.75rem; cursor: pointer; font-size: 0.8rem; font-family: inherit;
+}
+.btn-primary-sm:hover { background: #3b8de8; }
+
+.sign-out-btn {
+  background: transparent; border: 1px solid #2a2a3a; color: #888;
+  border-radius: 6px; padding: 0.4rem 0.75rem; cursor: pointer;
+  font-size: 0.8rem; font-family: inherit;
+}
+.sign-out-btn:hover { border-color: #f97b4f; color: #f97b4f; }
+
+/* ── Item list ───────────────────────────── */
+.item-list { list-style: none; padding: 0; margin: 0 0 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.item-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: #1a1a24; border: 1px solid #2a2a3a; border-radius: 8px; padding: 0.7rem 1rem;
+}
+.item-row-title { flex: 1; font-size: 0.9rem; color: #ccc; }
+.item-row-sub { font-size: 0.75rem; color: #555; margin-top: 0.15rem; }
+.item-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+/* ── Edit form panel ─────────────────────── */
+.edit-form {
+  background: #13131c; border: 1px solid #2a2a3a;
+  border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem;
+}
+.edit-form-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+}
+.edit-form-header h4 { margin: 0; font-size: 0.95rem; color: #ccc; }
+
+/* ── Messages table ──────────────────────── */
+.messages-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.messages-table th {
+  text-align: left; padding: 0.6rem 0.75rem; color: #555; font-weight: 500;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px solid #2a2a3a;
+}
+.messages-table td { padding: 0.8rem 0.75rem; color: #ccc; border-bottom: 1px solid #1e1e28; vertical-align: top; max-width: 220px; word-break: break-word; }
+.messages-table tr:hover td { background: #13131c; }
+
+/* ── Misc ────────────────────────────────── */
+.empty-state { text-align: center; color: #444; padding: 2.5rem; font-size: 0.9rem; }
+.divider { border: none; border-top: 1px solid #2a2a3a; margin: 1.5rem 0; }
+.checkbox-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #ccc; margin-bottom: 1rem; cursor: pointer; }
+.checkbox-row input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; accent-color: #4f9cf9; }
+.save-status { font-size: 0.8rem; color: #38e2b8; margin-left: 0.75rem; }
+.header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.header-row h2 { margin: 0; font-size: 1.2rem; color: #fff; }
