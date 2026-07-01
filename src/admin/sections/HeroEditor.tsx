@@ -74,7 +74,6 @@ export default function HeroEditor() {
       <div className="form-group">
         <label>Profile Photo</label>
         <ImageUpload
-          storagePath="hero/profile"
           currentUrl={data.imageUrl}
           onUploaded={(url) => setData((d) => ({ ...d, imageUrl: url }))}
         />
